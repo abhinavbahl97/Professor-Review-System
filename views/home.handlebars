@@ -1,0 +1,8 @@
+<h2> {{b}} <h2>
+<input type="text" id="val" onkeyup="func()" placeholder="Search for Professors.." title="Type in a name">
+<ul id="Ul">
+{{#each a}}
+	<p><a href="/professor/{{this.id}}">{{this.Name}}</a>, {{this.University}} </p>
+{{/each}}
+</ul>
+ <h3 id = "data" >no other matches found</h3>

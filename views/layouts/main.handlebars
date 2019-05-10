@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+    <title>Final Project</title>
+<style>
+  li {
+    display: inline;
+  }
+
+  h3{
+    color: white;
+  }
+
+</style>
+</head>
+<div class = 'nav'> 
+<center>
+<ul> 
+  <li><a href="/">All Professors</a></li> 
+  <li><a href="/highRate"> Highest Rated Professors</a></li> 
+  <li><a href="/lowRate"> Lowest Rated Professors</a></li> 
+  <li><a href="/professor_form"> Add a Professor review</a></li> 
+  <li><a href="/alpha"> Alphabetically listed Professors</a></li> 
+  <li><a href="/rand"> Random Professor Generator</a></li>
+  <li><a href="/delete-form"> Delete a Professor</a></li>
+</ul> 
+</center>
+</div>
+
+<script>
+function func() {
+    var flag = false
+    var inp = document.getElementById("val");
+    var fil = inp.value.toUpperCase();
+    var ul = document.getElementById("Ul");
+    var p = ul.getElementsByTagName("p");
+    for (i = 0; i < p.length; i++) {
+        a = p[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(fil) <= -1) {
+            p[i].style.display = "none";          
+              document.getElementById("data").style.color = "black";
+        } else {
+            p[i].style.display = ""; 
+            document.getElementById("data").style.color = "white";   
+        }
+    }
+}
+
+
+</script>
+<body>
+  
+    {{{body}}}
+   
+</body>
+</html>
+
