@@ -133,5 +133,5 @@ are the 10 endpoints we have
 '/delete'
 
 ### 8. Modules
-Our modules can be found in the node_modules folder. 2 modules include accepts
-and array-flaten
+Our modules can be found in the index and models folders. 2 modules include unique() in index.js
+and professor.js in models
