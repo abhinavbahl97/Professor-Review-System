@@ -12,6 +12,8 @@ var mongoose = require('mongoose');
 var dotenv = require('dotenv');
 var Professor = require('./models/Professor');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -28,9 +30,19 @@ mongoose.connection.on('error', function() {
     process.exit(1);
 });
 
+//socket stuff
+io.on('connection', function(socket) {
+    console.log('NEW socket connection.');
+    socket.on('disconnect', function(){
+        console.log('Oops. A user disconnected.');
+  });
+});
+
 var Professor = require('./models/Professor');
 
-app.post('/professor', function(req, res) {
+app.post('/professorAdd', function(req, res) {
+	console.log("reveiced POST");
+	console.log(req.body);
     var professor = new Professor({
         Name: req.body.Name,
         University: req.body.University,
@@ -41,6 +53,7 @@ app.post('/professor', function(req, res) {
 
     professor.save(function(err) {
         if (err) throw err;
+        io.emit('new professor', professor);
         res.send('Succesfully inserted professor.');
     });
 });
@@ -53,7 +66,7 @@ app.get('/',function(req,res){
         for(i = 0;i<count;i++){
             professor_data.push({"Name":professors[i].Name,"id":professors[i].id, "University":professors[i].University,"Subject":professors[i].Subject,
                     "Rating":professors[i].Rating, "Review":professors[i].Review})
-            console.log(professors[i].Review);
+            //console.log(professors[i].Review);
         }
         res.render('home', {
         a : professor_data,
@@ -249,10 +262,28 @@ app.get('/rand', function(req, res){
  });
 
 app.get('/professor_form', function(req, res){
-  res.render('professor_form', {});
+  var professor_data = []
+    Professor.find({}, function(err, professors) {
+        if (err) throw err;
+        var count = Object.keys(professors).length
+        for(i = 0;i<count;i++){
+            professor_data.push({"Name":professors[i].Name,"id":professors[i].id, "University":professors[i].University,"Subject":professors[i].Subject,
+                    "Rating":professors[i].Rating, "Review":professors[i].Review})
+            //console.log(professors[i].Review);
+        }
+        res.render('professor_form', {
+        a : professor_data,
+        b : 'All Professors'
+    });
+    });  
+ 
 });
 
 
-app.listen(process.env.PORT || 3000, function() {
+/*app.listen(process.env.PORT || 3000, function() {
+    console.log('Listening!');
+});*/
+
+http.listen(process.env.PORT || 3000, function() {
     console.log('Listening!');
 });
