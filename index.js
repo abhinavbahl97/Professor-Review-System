@@ -33,9 +33,6 @@ mongoose.connection.on('error', function() {
 //socket stuff
 io.on('connection', function(socket) {
     console.log('NEW socket connection.');
-    socket.on('disconnect', function(){
-        console.log('Oops. A user disconnected.');
-  });
 });
 
 var Professor = require('./models/Professor');

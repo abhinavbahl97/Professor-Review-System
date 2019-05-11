@@ -5,15 +5,49 @@
     <!--<link rel="stylesheet" type="text/css" href="/public/css/main.css"> -->
     <title>Final Project</title>
 <style>
+  body {
+    background-color: #CA7575
+  }
   #nav {
     display: inline;
+    float: left;
   }
 
-  ul {
-    list-style-type: none
+  #nav_bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   }
 
+  #nav_ {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+  }
+
+  #Ul {
+    list-style-type: none;
+    color: white;
+  }
+
+  #oak {
+    height:25%;
+    width:auto;
+  }
+  form {
+    color: white;
+  }
+  h1{
+    color: white;
+  }
+  h2{
+    color: white;
+  }
   h3{
+    color: white;
+  }
+  h4{
     color: white;
   }
 
@@ -21,19 +55,27 @@
 </head>
 <div class = 'nav'> 
 <center>
-<ul> 
+<ul id=nav_bar> 
 
-  <li id=nav><a href="/">All Professors</a></li> 
-  <li id=nav><a href="/highRate"> Highest Rated Professors</a></li> 
-  <li id=nav><a href="/lowRate"> Lowest Rated Professors</a></li> 
-  <li id=nav><a href="/professor_form"> Add a Professor review</a></li> 
-  <li id=nav><a href="/alpha"> Alphabetically listed Professors</a></li> 
-  <li id=nav><a href="/rand"> Random Professor Generator</a></li>
-  <li id=nav><a href="/delete-form"> Delete a Professor</a></li>
-  <li id=nav><a href="/about_Page"> Project About-Page</a></li>
+  <li id=nav><a id=nav_ href="/">All Professors</a></li> 
+  <li id=nav><a id=nav_ href="/highRate"> Highest Rated Professors</a></li> 
+  <li id=nav><a id=nav_ href="/lowRate"> Lowest Rated Professors</a></li> 
+  <li id=nav><a id=nav_ href="/professor_form"> Add a Professor review</a></li> 
+  <li id=nav><a id=nav_ href="/alpha"> Alphabetically listed Professors</a></li> 
+  <li id=nav><a id=nav_ href="/rand"> Random Professor Generator</a></li>
+  <li id=nav><a id=nav_ href="/delete-form"> Delete a Professor</a></li>
+  <li id=nav><a id=nav_ href="/about_Page"> Project About-Page</a></li>
 
 </ul> 
 </center>
+</div>
+<div id=title>
+  <table id=tittle>
+    <tr>
+      <td><img id=oak src="https://cdn.bulbagarden.net/upload/thumb/3/3e/Lets_Go_Pikachu_Eevee_Professor_Oak.png/180px-Lets_Go_Pikachu_Eevee_Professor_Oak.png"></td>
+      <td><h1>Professor Review Hub</h1></td>
+    </tr>
+  </table>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
@@ -61,7 +103,7 @@
 
   socket.on('new professor', function(prof){
     console.log("received new professor DATA");
-    $('#Ul').append("<p><a href=" + prof.id + ">" + prof.Name + "</a>, + " + prof.University + "</p>");
+    $('#Ul').append("<li id=prof_list><a href=" + prof.id + ">" + prof.Name + "</a>, + " + prof.University + "</li>");
   });
 
 </script>
