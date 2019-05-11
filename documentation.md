@@ -93,8 +93,6 @@ Navigation Filters
 5. random teacher -> `  /rand  `
 6. add teacher -> ` /teacher_form `
 
-###Final Project
-
 ### 6. MongoDB
 
 Our project imports the following files and uses npm packages for schemas
@@ -102,7 +100,7 @@ var _ = require('underscore');
 var mongoose = require('mongoose');
 
 ### 7. Live Updates
-
+We have live notification system for adding and deleting professors
 
 ### 8. View Data
 
@@ -133,5 +131,5 @@ are the 10 endpoints we have
 '/delete'
 
 ### 8. Modules
-Our modules can be found in the node_modules folder. 2 modules include accepts
+Our modules can be found in the index folder. 2 modules include accepts
 and array-flaten
