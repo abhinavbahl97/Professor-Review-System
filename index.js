@@ -279,6 +279,10 @@ app.get('/professor_form', function(req, res){
  
 });
 
+app.get('/about_Page', function(req, res){
+  res.render('about_Page', {});
+});
+
 
 /*app.listen(process.env.PORT || 3000, function() {
     console.log('Listening!');

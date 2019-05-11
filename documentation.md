@@ -1,15 +1,14 @@
-
 # Professor Review System
 
 ---
 
-Name: Abhinav Bahl
+Name: Abhinav Bahl, Mitchell Skopic, Marvin Xu
 
-Date: April 9, 2019
+Date: May 1, 2019
 
 Project Topic: Professor Review System
 
-URL: Emailed
+URL:
 
 ---
 
@@ -93,3 +92,46 @@ Navigation Filters
 4. alphabetically listed teachers -> `  /alpha  `
 5. random teacher -> `  /rand  `
 6. add teacher -> ` /teacher_form `
+
+###Final Project
+
+### 6. MongoDB
+
+Our project imports the following files and uses npm packages for schemas
+var _ = require('underscore');
+var mongoose = require('mongoose');
+
+### 7. Live Updates
+
+
+### 8. View Data
+
+Our handlebars pages includes delete-form, delete, home, professor form, professor, and University. Professor form has
+the submission form.
+
+Use express.js to have at least 10 different endpoints
+/professor
+/
+/professor/:id/review
+'/delete-form'
+'/delete'
+'/api/getProfessor'
+'/api/getCollege'
+'/professor/:id'
+'/highRate'
+'/lowRate'
+'/alpha'
+'/rand'
+'/professor_form'
+are the 10 endpoints we have
+##At least 2 post endpoints
+'/professor'
+'/professor/:id/review'
+
+## At least 2 delete endpoints
+'/delete-form'
+'/delete'
+
+### 8. Modules
+Our modules can be found in the index and models folders. 2 modules include unique() in index.js
+and professor.js in models

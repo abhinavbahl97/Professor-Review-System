@@ -1,0 +1,46 @@
+<form id="about Page", action="/about_Page", method="get">
+  <h3>About The Project</h3>
+  <table>
+    <tr>
+     <td>
+			     													<center><b>Professor Review System<b></center>
+
+			<p>Our WebApp allows the users to add and search for professors in a lot of different ways. The user can add different professor reviews dynamically to the database. He can then retrieve all of those reviews upon re-loading the web app. Along with that, the user can view highest and lowest rated professors in different views, alphabetically list all professors and generate random professor reviews. The user can also delete professor reviews from the database permanently, using the professor’s name. This app is conjointly built by Abhinav Bahl, Mitchell Skopic and Marvin Xu.</p>
+
+			Data point fields:
+			<ul>
+				<p> <li>`Field 1`: Name        ...       `Type: string`</li></p>
+				<p> <li>`Field 2`: University     ...       `Type: string`</li></p>
+				<p> <li>`Field 3`: Subject     ...       `Type: string`</li></p>
+				<p><li>`Field 4`: Rating      ...       `Type: number`</li></p>
+				<p> <li>`Field 5`: Review     ...       `Type: array of strings`</li></p>
+
+				<p>Schemas implemented:
+					{
+					Name: {
+					type: String,
+					required: true
+					},
+					University: {
+					type: String,
+					required: true
+					},
+					Subject: {
+					type: String,
+					required: true
+					},
+					Rating: {
+					type: Number,
+					min: 0,
+					max: 10,
+					required: true
+					},
+					Review: [String]
+					}
+					</p>
+
+			</ul>
+     </td>
+    </tr>
+  </table>
+</form>
