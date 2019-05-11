@@ -22,7 +22,7 @@ Data point fields:
 - `Field 4`: Rating      ...       `Type: number`
 - `Field 5`: Review     ...       `Type: array of strings`
 
-Schema:
+Schemas:
 {
 Name: {
 type: String,
@@ -92,6 +92,7 @@ Navigation Filters
 4. alphabetically listed teachers -> `  /alpha  `
 5. random teacher -> `  /rand  `
 6. add teacher -> ` /teacher_form `
+7. Delete a teacher -> '/delete-form'
 
 ###Final Project
 
@@ -103,6 +104,7 @@ var mongoose = require('mongoose');
 
 ### 7. Live Updates
 
+Sockets: Our project has a list of professors on the home page which auto-updates when new professors are added to the database. After a POST entry, a new item is added to the homepage of all connected sockets. A emit() call is made with the new data which is used in main.handlebars to update the list.
 
 ### 8. View Data
 
